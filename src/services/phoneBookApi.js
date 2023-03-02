@@ -1,21 +1,26 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://63fcb8b78ef914c5559de1b9.mockapi.io/api/v1/';
+const privateHost = axios.create({
+  baseURL: 'https://connections-api.herokuapp.com',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 export const fetchContacts = async () => {
-  const { data } = await axios.get(`${BASE_URL}contacts`);
+  const { data } = await privateHost.get(`/contacts`);
 
   return data;
 };
 
 export const addPhoneContacts = async contact => {
-  const { data } = await axios.post(`${BASE_URL}contacts`, contact);
+  const { data } = await privateHost.post(`contacts`, contact);
 
   return data;
 };
 
 export const deletePhoneContacts = async id => {
-  const { data } = await axios.delete(`${BASE_URL}contacts/${id}`);
+  const { data } = await privateHost.delete(`/contacts/${id}`);
 
   return data;
 };

@@ -7,15 +7,14 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 
 export function App() {
-  //передаем пропсами
   return (
     <main>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/sign-up" element={<Signin />} />
           <Route path="/log-in" element={<Login />} />
-          <Route path="/sign-in" element={<Signin />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
