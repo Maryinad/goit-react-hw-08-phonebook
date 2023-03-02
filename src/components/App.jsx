@@ -1,17 +1,24 @@
-import { PhoneBook } from './PhoneBook/PhoneBook.jsx';
-import { ContactList } from './ContactList/ContactList.jsx';
-import { Filter } from '../components/Filter/Filter.jsx';
-import { TitlePhone, TitleCont } from './App.styled';
+import { Contacts } from 'pages/ContactsPage/Contacts.jsx';
+import { Home } from 'pages/HomePage/Home.jsx';
+import { Login } from 'pages/LoginPage/Login.jsx';
+import { Signin } from 'pages/SigninPage/Signin.jsx';
+import { ErrorPage } from 'pages/ErrorPage/ErrorPage.jsx';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
 
 export function App() {
   //передаем пропсами
   return (
-    <>
-      <TitlePhone>Phonebook</TitlePhone>
-      <PhoneBook />
-      <TitleCont>Contacts</TitleCont>
-      <Filter />
-      <ContactList />
-    </>
+    <main>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/log-in" element={<Login />} />
+          <Route path="/sign-in" element={<Signin />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+    </main>
   );
 }
