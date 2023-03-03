@@ -1,6 +1,8 @@
 import { SignInForm } from '../../components/SigninForm/SignInForm';
 import React from 'react';
 
-export function Login() {
+function Login() {
   return <SignInForm isLogin />;
 }
+
+export default Login;

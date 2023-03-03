@@ -1,34 +1,46 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { Loader } from 'components/Loader/Loader';
+import React, { Suspense } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { StyledNavLink } from './Layout.styled';
+
+import { logOutRequest } from 'redux/auth/usersOperation';
+import { selectIsLoggedIn, selectUserData } from 'redux/selectors';
+import { Container, Header, StyledNavLink, Text, Btn } from './Layout.styled';
 
 export function Layout() {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const userData = useSelector(selectUserData);
+
+  const handleLogOut = () => {
+    dispatch(logOutRequest());
+  };
   return (
     <>
-      <header>
-        <nav>
-          {/* {!isLoggedIn ? (
-            <>
-              <StyledNavLink to="/">Home</StyledNavLink>
-              <StyledNavLink to="/contacts">Contacts</StyledNavLink>
-              <button>Logout</button>
-            </>
-          ) : (
-            <>
-              <StyledNavLink to="/sign-up">Sing up</StyledNavLink>
-              <StyledNavLink to="/log-in">Log In</StyledNavLink>
-            </>
-          )} */}
-          <StyledNavLink to="/">Home</StyledNavLink>
-          <StyledNavLink to="/contacts">Contacts</StyledNavLink>
-          <StyledNavLink to="/sign-up">Sing up</StyledNavLink>
-          <StyledNavLink to="/log-in">Log In</StyledNavLink>
-        </nav>
-      </header>
+      <Container>
+        <Header>
+          <nav>
+            {isLoggedIn ? (
+              <>
+                <StyledNavLink to="/">👋 Home</StyledNavLink>
+                <StyledNavLink to="/contacts">Contacts</StyledNavLink>
+                <Text>Hello, {userData.name}</Text>
+                <Btn onClick={handleLogOut}>Logout</Btn>
+              </>
+            ) : (
+              <>
+                <StyledNavLink to="/">👋 Home</StyledNavLink>
+                <StyledNavLink to="/sign-up">Sing up</StyledNavLink>
+                <StyledNavLink to="/log-in">Log In</StyledNavLink>
+              </>
+            )}
+          </nav>
+        </Header>
+      </Container>
       <main>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );

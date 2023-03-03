@@ -1,14 +1,26 @@
 import { Loader } from 'components/Loader/Loader';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { loginRequest, registerRequest } from 'redux/auth/usersOperation';
+import { selectIsLoadingAuth, selectUserName } from 'redux/selectors';
+import { Btn, FormField, InputName, TitleName } from './SigninForm.styled';
 
 export function SignInForm({ isLogin }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.auth.isLoading);
+  const navigate = useNavigate();
+
+  const isLoading = useSelector(selectIsLoadingAuth);
+  const user = useSelector(selectUserName);
+
+  useEffect(() => {
+    if (user !== null) navigate('/contacts');
+  }, [user, navigate]);
 
   const userMap = {
     name: setName,
@@ -30,32 +42,32 @@ export function SignInForm({ isLogin }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormField onSubmit={handleSubmit}>
       {!isLogin && (
-        <label>
+        <TitleName>
           <span>Name: </span>
-          <input
+          <InputName
             type="text"
             name="name"
             placeholder={'Specify your name'}
             required
             onChange={handleChange}
           />
-        </label>
+        </TitleName>
       )}
-      <label>
+      <TitleName>
         <span>Email: </span>
-        <input
+        <InputName
           type="email"
           name="email"
           placeholder={'Specify your email'}
           required
           onChange={handleChange}
         />
-      </label>
-      <label className="input-group">
+      </TitleName>
+      <TitleName>
         <span>Password: </span>
-        <input
+        <InputName
           type="password"
           name="password"
           minLength={7}
@@ -63,11 +75,11 @@ export function SignInForm({ isLogin }) {
           required
           onChange={handleChange}
         />
-      </label>
+      </TitleName>
       <>
         {isLoading && <Loader />}
-        <button type="submit">{!isLogin ? 'Sign up' : 'Log in'}</button>
+        <Btn type="submit">{!isLogin ? 'Sign up' : 'Log in'}</Btn>
       </>
-    </form>
+    </FormField>
   );
 }

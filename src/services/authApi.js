@@ -4,7 +4,7 @@ const publicHost = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
-const privatHost = axios.create({
+export const privatHost = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 

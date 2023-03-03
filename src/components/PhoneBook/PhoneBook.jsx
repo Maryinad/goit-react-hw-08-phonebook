@@ -10,11 +10,12 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addContacts } from 'redux/phoneBook/phoneBookOperations';
+import { selectContacts } from 'redux/selectors';
 
 export function PhoneBook() {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(state => state.phonebook.contacts);
+  const contacts = useSelector(selectContacts);
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');

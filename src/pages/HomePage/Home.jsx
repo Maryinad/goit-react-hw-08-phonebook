@@ -1,7 +1,7 @@
 import React from 'react';
 import { Styles, Title } from './Home.styled';
 
-export function Home() {
+function Home() {
   return (
     <Styles>
       <Title>
@@ -10,3 +10,5 @@ export function Home() {
     </Styles>
   );
 }
+
+export default Home;

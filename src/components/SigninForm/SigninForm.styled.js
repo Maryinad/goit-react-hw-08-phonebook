@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FormField = styled.form`
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-content: center;

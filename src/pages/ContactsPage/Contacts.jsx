@@ -2,9 +2,20 @@ import { TitleCont, TitlePhone } from 'components/App.styled';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { PhoneBook } from 'components/PhoneBook/PhoneBook';
-import React from 'react';
+import WithAuthRedirect from 'HOC/WithAuthRedirect';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from 'redux/phoneBook/phoneBookOperations';
 
-export function Contacts() {
+function Contacts() {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.auth.userData.name);
+
+  useEffect(() => {
+    if (user === null) return;
+    dispatch(getContacts());
+  }, [dispatch, user]);
+
   return (
     <>
       <TitlePhone>Phonebook</TitlePhone>
@@ -15,3 +26,5 @@ export function Contacts() {
     </>
   );
 }
+
+export default WithAuthRedirect(Contacts, '/log-in');

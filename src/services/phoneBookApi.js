@@ -1,26 +1,19 @@
-import axios from 'axios';
-
-const privateHost = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+import { privatHost } from './authApi';
 
 export const fetchContacts = async () => {
-  const { data } = await privateHost.get(`/contacts`);
+  const { data } = await privatHost.get(`/contacts`);
 
   return data;
 };
 
 export const addPhoneContacts = async contact => {
-  const { data } = await privateHost.post(`contacts`, contact);
+  const { data } = await privatHost.post(`contacts`, contact);
 
   return data;
 };
 
 export const deletePhoneContacts = async id => {
-  const { data } = await privateHost.delete(`/contacts/${id}`);
+  const { data } = await privatHost.delete(`/contacts/${id}`);
 
   return data;
 };

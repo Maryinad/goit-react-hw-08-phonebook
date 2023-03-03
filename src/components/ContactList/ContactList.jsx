@@ -3,22 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getContacts } from 'redux/phoneBook/phoneBookOperations';
 import { Loader } from 'components/Loader/Loader';
+import {
+  selectError,
+  selectFilteredContact,
+  selectIsLoadingPhonebook,
+} from 'redux/selectors';
 
 export function ContactList() {
-  const isLoading = useSelector(state => state.phonebook.isLoading);
-  const error = useSelector(state => state.phonebook.error);
+  const isLoading = useSelector(selectIsLoadingPhonebook);
+  const error = useSelector(selectError);
 
-  const contacts = useSelector(state => state.phonebook.contacts);
-  const value = useSelector(state => state.filterData.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().trim().includes(value.toLowerCase())
-  );
+  const filteredContacts = selectFilteredContact;
+
   return (
     <>
       {isLoading && <Loader />}

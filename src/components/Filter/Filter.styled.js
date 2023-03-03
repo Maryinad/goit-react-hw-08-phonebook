@@ -17,4 +17,5 @@ export const InputBlock = styled.input`
   border: 3px solid #2c3a47;
   min-width: 200px;
   min-height: 30px;
+  border-radius: 4px;
 `;
