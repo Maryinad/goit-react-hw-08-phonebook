@@ -1,20 +1,35 @@
 import styled from 'styled-components';
 
 export const FormField = styled.form`
-  margin-top: 50px;
+  // margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: center;
-  align-items: center;
-  min-width: 300px;
+  /* align-items: flex-start; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* min-width: 300px; */
+  /* max-width: 700px; */
+  width: 600px;
+  margin: 50px auto;
+  align-items: flex-start;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  /* justify-content: center;
+  align-items: center; */
 `;
 
 export const TitleName = styled.label`
-  display: block;
+  display: flex;
   font-size: 32px;
   color: #fd7272;
   font-weight: 700;
+  gap: 10px;
+  align-items: center;
 `;
 
 export const TitleNumber = styled.label`
@@ -48,4 +63,5 @@ export const Btn = styled.button`
   color: white;
   border-radius: 4px;
   border: none;
+  width: 100%;
 `;

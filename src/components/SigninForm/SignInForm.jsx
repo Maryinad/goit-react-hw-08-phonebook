@@ -5,7 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 import { loginRequest, registerRequest } from 'redux/auth/usersOperation';
 import { selectIsLoadingAuth, selectUserName } from 'redux/selectors';
-import { Btn, FormField, InputName, TitleName } from './SigninForm.styled';
+import {
+  Btn,
+  Container,
+  FormField,
+  InputName,
+  TitleName,
+} from './SigninForm.styled';
 
 export function SignInForm({ isLogin }) {
   const [name, setName] = useState('');
@@ -44,38 +50,44 @@ export function SignInForm({ isLogin }) {
   return (
     <FormField onSubmit={handleSubmit}>
       {!isLogin && (
+        <Container>
+          <TitleName>
+            <span>Name: </span>
+            <InputName
+              type="text"
+              name="name"
+              placeholder={'Specify your name'}
+              required
+              onChange={handleChange}
+            />
+          </TitleName>
+        </Container>
+      )}
+      <Container>
         <TitleName>
-          <span>Name: </span>
+          <span>Email: </span>
           <InputName
-            type="text"
-            name="name"
-            placeholder={'Specify your name'}
+            type="email"
+            name="email"
+            placeholder={'Specify your email'}
             required
             onChange={handleChange}
           />
         </TitleName>
-      )}
-      <TitleName>
-        <span>Email: </span>
-        <InputName
-          type="email"
-          name="email"
-          placeholder={'Specify your email'}
-          required
-          onChange={handleChange}
-        />
-      </TitleName>
-      <TitleName>
-        <span>Password: </span>
-        <InputName
-          type="password"
-          name="password"
-          minLength={7}
-          placeholder={'Specify your password'}
-          required
-          onChange={handleChange}
-        />
-      </TitleName>
+      </Container>
+      <Container>
+        <TitleName>
+          <span>Password: </span>
+          <InputName
+            type="password"
+            name="password"
+            minLength={7}
+            placeholder={'Specify your password'}
+            required
+            onChange={handleChange}
+          />
+        </TitleName>
+      </Container>
       <>
         {isLoading && <Loader />}
         <Btn type="submit">{!isLogin ? 'Sign up' : 'Log in'}</Btn>

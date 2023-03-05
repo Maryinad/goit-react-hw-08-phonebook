@@ -5,7 +5,16 @@ import { Outlet } from 'react-router-dom';
 
 import { logOutRequest } from 'redux/auth/usersOperation';
 import { selectIsLoggedIn, selectUserData } from 'redux/selectors';
-import { Container, Header, StyledNavLink, Text, Btn } from './Layout.styled';
+import {
+  Container,
+  Header,
+  StyledNavLink,
+  Text,
+  Btn,
+  Regested,
+  Navig,
+  Welcome,
+} from './Layout.styled';
 
 export function Layout() {
   const dispatch = useDispatch();
@@ -19,22 +28,28 @@ export function Layout() {
     <>
       <Container>
         <Header>
-          <nav>
+          <Navig>
             {isLoggedIn ? (
               <>
-                <StyledNavLink to="/">👋 Home</StyledNavLink>
-                <StyledNavLink to="/contacts">Contacts</StyledNavLink>
-                <Text>Hello, {userData.name}</Text>
-                <Btn onClick={handleLogOut}>Logout</Btn>
+                <div>
+                  <StyledNavLink to="/">👋 Home</StyledNavLink>
+                  <StyledNavLink to="/contacts">Contacts</StyledNavLink>
+                </div>
+                <Welcome>
+                  <Text>Hello, {userData.name}</Text>
+                  <Btn onClick={handleLogOut}>Logout</Btn>
+                </Welcome>
               </>
             ) : (
               <>
                 <StyledNavLink to="/">👋 Home</StyledNavLink>
-                <StyledNavLink to="/sign-up">Sing up</StyledNavLink>
-                <StyledNavLink to="/log-in">Log In</StyledNavLink>
+                <Regested>
+                  <StyledNavLink to="/sign-up">Sign up</StyledNavLink>
+                  <StyledNavLink to="/log-in">Log In</StyledNavLink>
+                </Regested>
               </>
             )}
-          </nav>
+          </Navig>
         </Header>
       </Container>
       <main>

@@ -9,7 +9,6 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 500;
   font-size: 24px;
   transition: all 0.3s;
-
   &.active {
     color: white;
     background-color: #fd7272;
@@ -20,6 +19,27 @@ export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
+`;
+
+export const Navig = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+`;
+
+export const Regested = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  // margin-left: auto;
+`;
+
+export const Welcome = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 `;
 
 export const Header = styled.header`
@@ -43,9 +63,7 @@ export const Text = styled.span`
 `;
 
 export const Btn = styled.button`
-  display: block;
-  margin-top: 20px;
-  padding: 15px 25px;
+  padding: 8px 16px;
   font-size: 22px;
   font-weight: 700;
   background-color: #fd7272;
