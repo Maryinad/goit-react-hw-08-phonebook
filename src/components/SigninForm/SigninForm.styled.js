@@ -4,7 +4,7 @@ export const FormField = styled.form`
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 320px;
+  width: 600px;
   margin: 50px auto;
   align-items: flex-start;
   padding: 20px 20px;
@@ -34,7 +34,7 @@ export const InputName = styled.input`
 `;
 
 export const Btn = styled.button`
-  display: block;
+  display: inline-block;
   margin-top: 20px;
   padding: 15px 25px;
   font-size: 22px;
@@ -43,7 +43,7 @@ export const Btn = styled.button`
   color: white;
   border-radius: 4px;
   border: none;
-  max-width: 100%;
+  width: 100%;
 `;
 
 export const Img = styled.img`
@@ -52,5 +52,4 @@ export const Img = styled.img`
   margin-right: auto;
   margin-bottom: 20px;
   margin-top: 50px;
-  width: auto;
 `;

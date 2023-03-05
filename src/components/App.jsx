@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { getCurrentUserRequest } from 'redux/auth/usersOperation';
 import { lazy, useEffect } from 'react';
 import ErrorPage from 'pages/ErrorPage/ErrorPage.jsx';
-import { Container } from './App.styled';
 
 // import Login from 'pages/LoginPage/Login.jsx';
 // import Home from 'pages/HomePage/Home.jsx';
@@ -24,7 +23,7 @@ export function App() {
   }, [dispatch]);
 
   return (
-    <Container>
+    <main>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
@@ -34,6 +33,6 @@ export function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
-    </Container>
+    </main>
   );
 }
