@@ -20,7 +20,6 @@ export function ContactList() {
   }, [dispatch]);
 
   const filteredContacts = useSelector(selectFilteredContact);
-  console.log('filteredContacts', filteredContacts);
 
   return (
     <>

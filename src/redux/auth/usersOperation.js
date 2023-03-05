@@ -14,7 +14,6 @@ export const registerRequest = createAsyncThunk(
       const response = await register(credential);
       token.set(response.token);
 
-      console.log('response', response);
       return response;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -28,7 +27,6 @@ export const loginRequest = createAsyncThunk(
     try {
       const response = await login(credential);
       token.set(response.token);
-      //   console.log('response', credential);
 
       return response;
     } catch (error) {

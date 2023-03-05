@@ -30,7 +30,6 @@ export const userLogOutRequest = async () => {
 
 export const token = {
   set: token => {
-    console.log(token);
     privatHost.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unSet: () => {

@@ -5,7 +5,6 @@ export const selectFilterValue = state => state.filterData.filter;
 
 //phonebook
 export const selectContacts = state => state.phonebook.contacts;
-console.log('selectContacts', selectContacts);
 export const selectIsLoadingPhonebook = state => state.phonebook.isLoading;
 export const selectError = state => state.phonebook.error;
 
