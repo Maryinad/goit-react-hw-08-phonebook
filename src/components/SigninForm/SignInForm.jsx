@@ -54,7 +54,7 @@ export function SignInForm({ isLogin }) {
   return (
     <>
       {isLogin ? (
-        <Img src={login} alt={login} width="500" />
+        <Img src={login} alt={login} />
       ) : (
         <Img src={welcomeImg} alt={welcomeImg} width="500" />
       )}

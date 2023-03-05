@@ -4,7 +4,7 @@ export const FormField = styled.form`
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 600px;
+  width: 320px;
   margin: 50px auto;
   align-items: flex-start;
   padding: 20px 20px;
@@ -26,21 +26,7 @@ export const TitleName = styled.label`
   align-items: center;
 `;
 
-export const TitleNumber = styled.label`
-  display: block;
-  font-size: 32px;
-  color: #fd7272;
-  font-weight: 700;
-`;
-
 export const InputName = styled.input`
-  border: 3px solid #2c3a47;
-  min-width: 200px;
-  min-height: 30px;
-  border-radius: 4px;
-`;
-
-export const InputNumber = styled.input`
   border: 3px solid #2c3a47;
   min-width: 200px;
   min-height: 30px;
@@ -57,7 +43,7 @@ export const Btn = styled.button`
   color: white;
   border-radius: 4px;
   border: none;
-  width: 100%;
+  max-width: 100%;
 `;
 
 export const Img = styled.img`
@@ -66,4 +52,5 @@ export const Img = styled.img`
   margin-right: auto;
   margin-bottom: 20px;
   margin-top: 50px;
+  width: auto;
 `;
