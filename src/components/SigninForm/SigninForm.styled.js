@@ -4,7 +4,8 @@ export const FormField = styled.form`
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   margin: 50px auto;
   align-items: flex-start;
   padding: 20px 20px;
@@ -52,4 +53,5 @@ export const Img = styled.img`
   margin-right: auto;
   margin-bottom: 20px;
   margin-top: 50px;
+  max-width: 500px;
 `;
