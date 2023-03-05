@@ -3,12 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import login from '../../../src/images/login.svg';
+import welcomeImg from '../../images/welcome.svg';
+
 import { loginRequest, registerRequest } from 'redux/auth/usersOperation';
 import { selectIsLoadingAuth, selectUserName } from 'redux/selectors';
 import {
   Btn,
   Container,
   FormField,
+  Img,
   InputName,
   TitleName,
 } from './SigninForm.styled';
@@ -48,50 +52,57 @@ export function SignInForm({ isLogin }) {
   };
 
   return (
-    <FormField onSubmit={handleSubmit}>
-      {!isLogin && (
+    <>
+      {isLogin ? (
+        <Img src={login} alt={login} width="500" />
+      ) : (
+        <Img src={welcomeImg} alt={welcomeImg} width="500" />
+      )}
+      <FormField onSubmit={handleSubmit}>
+        {!isLogin && (
+          <Container>
+            <TitleName>
+              <span>Name: </span>
+              <InputName
+                type="text"
+                name="name"
+                placeholder={'Specify your name'}
+                required
+                onChange={handleChange}
+              />
+            </TitleName>
+          </Container>
+        )}
         <Container>
           <TitleName>
-            <span>Name: </span>
+            <span>Email: </span>
             <InputName
-              type="text"
-              name="name"
-              placeholder={'Specify your name'}
+              type="email"
+              name="email"
+              placeholder={'Specify your email'}
               required
               onChange={handleChange}
             />
           </TitleName>
         </Container>
-      )}
-      <Container>
-        <TitleName>
-          <span>Email: </span>
-          <InputName
-            type="email"
-            name="email"
-            placeholder={'Specify your email'}
-            required
-            onChange={handleChange}
-          />
-        </TitleName>
-      </Container>
-      <Container>
-        <TitleName>
-          <span>Password: </span>
-          <InputName
-            type="password"
-            name="password"
-            minLength={7}
-            placeholder={'Specify your password'}
-            required
-            onChange={handleChange}
-          />
-        </TitleName>
-      </Container>
-      <>
-        {isLoading && <Loader />}
-        <Btn type="submit">{!isLogin ? 'Sign up' : 'Log in'}</Btn>
-      </>
-    </FormField>
+        <Container>
+          <TitleName>
+            <span>Password: </span>
+            <InputName
+              type="password"
+              name="password"
+              minLength={7}
+              placeholder={'Specify your password'}
+              required
+              onChange={handleChange}
+            />
+          </TitleName>
+        </Container>
+        <>
+          {isLoading && <Loader />}
+          <Btn type="submit">{!isLogin ? 'Sign up' : 'Log in'}</Btn>
+        </>
+      </FormField>
+    </>
   );
 }

@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
 export const FormField = styled.form`
-  // margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-content: center;
-  /* align-items: flex-start; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* min-width: 300px; */
-  /* max-width: 700px; */
   width: 600px;
   margin: 50px auto;
   align-items: flex-start;
@@ -19,8 +13,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  /* justify-content: center;
-  align-items: center; */
+  text-align: center;
 `;
 
 export const TitleName = styled.label`
@@ -64,4 +57,12 @@ export const Btn = styled.button`
   border-radius: 4px;
   border: none;
   width: 100%;
+`;
+
+export const Img = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 50px;
 `;
