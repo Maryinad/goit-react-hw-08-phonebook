@@ -19,7 +19,8 @@ export function ContactList() {
     dispatch(getContacts());
   }, [dispatch]);
 
-  const filteredContacts = selectFilteredContact;
+  const filteredContacts = useSelector(selectFilteredContact);
+  console.log('filteredContacts', filteredContacts);
 
   return (
     <>

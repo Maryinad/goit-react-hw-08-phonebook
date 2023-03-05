@@ -5,6 +5,7 @@ export const selectFilterValue = state => state.filterData.filter;
 
 //phonebook
 export const selectContacts = state => state.phonebook.contacts;
+console.log('selectContacts', selectContacts);
 export const selectIsLoadingPhonebook = state => state.phonebook.isLoading;
 export const selectError = state => state.phonebook.error;
 
@@ -19,6 +20,6 @@ export const selectFilteredContact = createSelector(
   [selectContacts, selectFilterValue],
   (contacts, filter) =>
     contacts.filter(contact =>
-      contact.name.toLowerCase().trim().includes(filter.toLowerCase)
+      contact.name.toLowerCase().trim().includes(filter.toLowerCase())
     )
 );
