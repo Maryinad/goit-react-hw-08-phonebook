@@ -33,10 +33,10 @@ export function Layout() {
               <>
                 <div>
                   <StyledNavLink to="/">👋 Home</StyledNavLink>
-                  <StyledNavLink to="/contacts">Contacts</StyledNavLink>
+                  <StyledNavLink to="/contacts"> ☎️ Contacts</StyledNavLink>
                 </div>
                 <Welcome>
-                  <Text>Hello, {userData.name}</Text>
+                  <Text>🙂 Hello, {userData.name}</Text>
                   <Btn onClick={handleLogOut}>Logout</Btn>
                 </Welcome>
               </>

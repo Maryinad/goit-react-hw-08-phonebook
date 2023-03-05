@@ -11,9 +11,11 @@ export const Contact = styled.li`
 export const Btn = styled.button`
   margin-top: 20px;
   margin-left: 20px;
-  padding: 6px 15px;
+  padding: 8px 16px;
   font-size: 22px;
   font-weight: 700;
   background-color: #fd7272;
   color: white;
+  border-radius: 4px;
+  border: none;
 `;

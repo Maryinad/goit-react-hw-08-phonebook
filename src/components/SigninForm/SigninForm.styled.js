@@ -7,6 +7,7 @@ export const FormField = styled.form`
   width: 600px;
   margin: 50px auto;
   align-items: flex-start;
+  padding: 20px 20px;
 `;
 
 export const Container = styled.div`

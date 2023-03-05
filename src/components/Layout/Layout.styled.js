@@ -6,7 +6,7 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 4px;
   text-decoration: none;
   color: #2c3a47;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 24px;
   transition: all 0.3s;
   &.active {
